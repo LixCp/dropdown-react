@@ -1,28 +1,25 @@
-import './App.css';
+import React, { useState } from 'react';
+import data from './data'
+import Question from './commponents/Question'
+
+
 
 function App() {
+  const [infos,setInfos] = useState(data)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
+    <main>
+      <div className='container'>
+        <h3>questions and answers about login</h3>
+        <section className='info'>
+          {
+            infos.map(item =>(
+              <Question key={item.id} {...item} />
+            ))
+          }
+        </section>
+      </div>
+    </main>
   );
 }
 
